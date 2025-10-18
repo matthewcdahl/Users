@@ -1,12 +1,15 @@
 package com.matthewdahl.User_Service.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users") // avoid using reserved keywords like "user"
-public class User {
+public class User implements Comparable<User>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +36,9 @@ public class User {
     public void setName(String name) { this.name = name; }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
+    @Override
+    public int compareTo(User other){
+        return this.name.compareTo(other.name);
+    }
 }

@@ -1,5 +1,6 @@
 package com.matthewdahl.User_Service.service;
 
+import java.util.Collections;
 import com.matthewdahl.User_Service.model.User;
 import com.matthewdahl.User_Service.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,11 @@ public class UserService {
             return true;
         }
         return false;
+    }
+
+    public List<User> alphabeticalSort(){
+        List<User> users = getAllUsers();
+        Collections.sort(users);
+        return users;
     }
 }

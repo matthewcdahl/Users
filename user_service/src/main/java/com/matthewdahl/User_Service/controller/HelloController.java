@@ -47,5 +47,10 @@ public class HelloController {
         return ResponseEntity.ok(user);
     }
 
+    @GetMapping("/alphabeticalSort")
+    public List<User> alphabeticalSort(){
+        return userService.alphabeticalSort();
+    }
+
 
 }
